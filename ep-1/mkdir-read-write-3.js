@@ -6,15 +6,15 @@ var target=path.join(dir,'target.js');
 
 fs.mkdir(dir,handleError(mkdirped));
 
-function mkdirped(err){
-    fs.readFile(source,{encoding:'utf-8'},handleError(haveFile));
+function mkdirped(){
+    fs.readFile(source,handleError(haveFile));
 }
 
 function haveFile(content){
         fs.writeFile(target,content,handleError(wroteFile));
 }
 function wroteFile(){
-    console.log("Successful done !");
+    console.log("Successful done!");
 }
 function handleError(cb){
     return function(err,result){
